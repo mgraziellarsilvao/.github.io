@@ -9,13 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-/* ===== PALETAS: cada tema define as cores por papel (b = fundo, f = texto de cada seção) ===== */
-:root,[data-tema="ondas"]{--b1:#1B1A3A;--b2:#461A50;--b3:#66244A;--b4:#AE4459;--b5:#E8BBB8;--b6:#1B1A3A;--f1:#F5EDEB;--f2:#F5EDEB;--f3:#F5EDEB;--f4:#F5EDEB;--f5:#1B1A3A;--f6:#F5EDEB;--acc:#AE4459;--accf:#FFFFFF;--ring:#F2A05A;--lnk:#F2A05A;--card:#461A50;--cardf:#F5EDEB;--stepb:#1B1A3A;--stepf:#F5EDEB;--stepn:#F2A05A;--navb:rgba(27,26,58,.9);--navf:#F5EDEB;}
-[data-tema="azul"]{--b1:#181A2F;--b2:#242E49;--b3:#37415C;--b4:#B4182D;--b5:#FDA481;--b6:#54162B;--f1:#F5EDEB;--f2:#F5EDEB;--f3:#F5EDEB;--f4:#F5EDEB;--f5:#181A2F;--f6:#F5EDEB;--acc:#B4182D;--accf:#FFFFFF;--ring:#FDA481;--lnk:#FDA481;--card:#242E49;--cardf:#F5EDEB;--stepb:#181A2F;--stepf:#F5EDEB;--stepn:#FDA481;--navb:rgba(24,26,47,.9);--navf:#F5EDEB;}
-[data-tema="ember"]{--b1:#23161A;--b2:#4A2C31;--b3:#7B4A4E;--b4:#B06A69;--b5:#D9A39B;--b6:#F3E3DD;--f1:#F3E3DD;--f2:#F3E3DD;--f3:#F3E3DD;--f4:#23161A;--f5:#23161A;--f6:#23161A;--acc:#D9A39B;--accf:#23161A;--ring:#D9A39B;--lnk:#D9A39B;--card:#4A2C31;--cardf:#F3E3DD;--stepb:#23161A;--stepf:#F3E3DD;--stepn:#D9A39B;--navb:rgba(35,22,26,.9);--navf:#F3E3DD;}
-[data-tema="inverno"]{--b1:#F6E9DA;--b2:#DBCFD1;--b3:#D0D7E4;--b4:#8A7C9D;--b5:#86576B;--b6:#1F1424;--f1:#1F1424;--f2:#1F1424;--f3:#1F1424;--f4:#1F1424;--f5:#F6E9DA;--f6:#F6E9DA;--acc:#86576B;--accf:#F6E9DA;--ring:#86576B;--lnk:#86576B;--card:#F6E9DA;--cardf:#1F1424;--stepb:#1F1424;--stepf:#F6E9DA;--stepn:#DBCFD1;--navb:rgba(246,233,218,.9);--navf:#1F1424;}
-[data-tema="mar"]{--b1:#933B5B;--b2:#B5728A;--b3:#9F9679;--b4:#AABAAE;--b5:#E3D6BF;--b6:#933B5B;--f1:#E3D6BF;--f2:#1E0F17;--f3:#1E0F17;--f4:#1E0F17;--f5:#1E0F17;--f6:#E3D6BF;--acc:#E3D6BF;--accf:#933B5B;--ring:#AABAAE;--lnk:#933B5B;--card:#E3D6BF;--cardf:#1E0F17;--stepb:#933B5B;--stepf:#E3D6BF;--stepn:#AABAAE;--navb:rgba(147,59,91,.92);--navf:#E3D6BF;}
-[data-tema="bronze"]{--b1:#071524;--b2:#1E3653;--b3:#305B7E;--b4:#864C2C;--b5:#F0D4BF;--b6:#4F210D;--f1:#F0D4BF;--f2:#F0D4BF;--f3:#F0D4BF;--f4:#F0D4BF;--f5:#071524;--f6:#F0D4BF;--acc:#864C2C;--accf:#F0D4BF;--ring:#F0D4BF;--lnk:#F0D4BF;--card:#1E3653;--cardf:#F0D4BF;--stepb:#071524;--stepf:#F0D4BF;--stepn:#F0D4BF;--navb:rgba(7,21,36,.92);--navf:#F0D4BF;}
+:root{--b1:#071524;--b2:#1E3653;--b3:#305B7E;--b4:#864C2C;--b5:#F0D4BF;--b6:#4F210D;--f1:#F0D4BF;--f2:#F0D4BF;--f3:#F0D4BF;--f4:#F0D4BF;--f5:#071524;--f6:#F0D4BF;--acc:#864C2C;--accf:#F0D4BF;--ring:#F0D4BF;--lnk:#F0D4BF;--card:#1E3653;--cardf:#F0D4BF;--stepb:#071524;--stepf:#F0D4BF;--stepn:#F0D4BF;--navb:rgba(7,21,36,.92);--navf:#F0D4BF;}
+/* ===== PALETA Bronze e azul: b = fundo, f = texto de cada seção (1 hero, 2 sobre, 3 projetos, 4 método, 5 stack, 6 rodapé) ===== */
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
 body{font-family:Inter,system-ui,sans-serif;background:var(--b1);color:var(--f1);line-height:1.65}
@@ -70,10 +65,6 @@ footer .contact a{font-weight:600;margin-right:22px}
 footer .btn.p{background:var(--f6);color:var(--b6)}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
 .reveal.in{opacity:1;transform:none}
-/* seletor de paleta (PRÉVIA: apague o bloco #temas e o 2º script quando escolher) */
-#temas{position:fixed;right:14px;bottom:14px;z-index:20;display:flex;flex-wrap:wrap;gap:6px;max-width:calc(100vw - 28px);padding:8px 10px;border-radius:16px;background:rgba(20,16,24,.82);color:#fff;font-size:.75rem;backdrop-filter:blur(8px);align-items:center}
-#temas button{font:inherit;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;padding:4px 10px;border-radius:999px;cursor:pointer}
-#temas button[aria-pressed="true"]{background:#fff;color:#141018;font-weight:600}
 @media(max-width:760px){.hero .wrap{grid-template-columns:1fr}.foto{order:-1;width:170px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn,.card{transition:none}}
 @media(max-width:640px){nav ul{gap:12px}nav a{font-size:.8rem}.logo{display:none}}
@@ -244,18 +235,5 @@ async function carregarRepos() {
 })();
 </script>
 
-<div id="temas" role="group" aria-label="Prévia de paletas de cores"><span>Paleta:</span>
-  <button data-t="ondas">Ondas</button><button data-t="azul">Azul e pêssego</button><button data-t="ember">Ember Dusk</button><button data-t="inverno">Inverno</button><button data-t="mar">Mar e amaranto</button><button data-t="bronze">Bronze e azul</button>
-</div>
-<script>
-// PRÉVIA das paletas: depois de escolher, defina o tema fixo em <html data-tema="..."> e apague este bloco
-(function(){
-  const bt=[...document.querySelectorAll("#temas button")], raiz=document.documentElement;
-  function usar(t){raiz.dataset.tema=t;bt.forEach(b=>b.setAttribute("aria-pressed",b.dataset.t===t));try{localStorage.setItem("tema",t)}catch(e){}}
-  let t="ondas";try{t=localStorage.getItem("tema")||t}catch(e){}
-  if(!bt.some(b=>b.dataset.t===t))t="ondas";
-  usar(t);bt.forEach(b=>b.addEventListener("click",()=>usar(b.dataset.t)));
-})();
-</script>
 </body>
 </html>
