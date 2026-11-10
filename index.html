@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maria | Finanças, Dados e Automação</title>
+<meta name="description" content="Portfólio de Maria: finanças, dados operacionais, Power BI e automações em Python.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--noite:#1B1A3A;--roxo:#461A50;--ameixa:#66244A;--framboesa:#AE4459;--pessego:#F2A05A;--rosa:#E8BBB8;--texto:#F5EDEB}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--noite);color:var(--texto);line-height:1.65}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pessego);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+section{padding:72px 0 40px}
+h2{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:28px}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--pessego);margin-bottom:12px}
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:10;background:rgba(27,26,58,.85);backdrop-filter:blur(8px)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:56px}
+nav ul{display:flex;gap:22px;list-style:none;padding:0}
+nav a{text-decoration:none;font-size:.9rem;opacity:.85}
+nav a:hover{color:var(--pessego);opacity:1}
+.logo{font-family:Fraunces,serif;font-weight:700}
+/* ondas */
+.wave{display:block;width:100%;height:70px;margin-bottom:-1px}
+.wave path{filter:drop-shadow(0 -6px 8px rgba(0,0,0,.35))}
+.s-noite{background:var(--noite)}.s-roxo{background:var(--roxo)}.s-ameixa{background:var(--ameixa)}.s-framboesa{background:var(--framboesa)}.s-rosa{background:var(--rosa);color:var(--noite)}
+/* hero */
+.hero{padding-top:150px;padding-bottom:60px;min-height:80vh}
+.hero h1{font-size:clamp(2.4rem,7vw,4.4rem);max-width:15ch}
+.hero p.lead{font-size:1.2rem;max-width:54ch;margin:20px 0 32px;opacity:.92}
+.btn{display:inline-block;padding:12px 24px;border-radius:999px;font-weight:600;text-decoration:none;margin:0 10px 10px 0;transition:transform .2s}
+.btn:hover{transform:translateY(-3px)}
+.btn.p{background:var(--framboesa);color:#fff}
+.btn.s{border:2px solid var(--pessego);color:var(--pessego)}
+/* sobre */
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:28px}
+.num{background:rgba(255,255,255,.06);border-radius:16px;padding:18px}
+.num b{font-family:Fraunces,serif;font-size:1.35rem;color:var(--pessego);display:block}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:24px}
+.card{background:var(--roxo);border-radius:20px;padding:28px;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:transform .25s}
+.card:hover{transform:translateY(-6px)}
+.card h3{font-size:1.5rem;margin-bottom:6px}
+.card .sub{opacity:.8;margin-bottom:16px;font-size:.95rem}
+.card h4{font-family:"JetBrains Mono",monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--pessego);margin:14px 0 4px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.tag,.chip{font-family:"JetBrains Mono",monospace;font-size:.78rem;padding:4px 12px;border-radius:999px;background:rgba(242,160,90,.16);color:var(--pessego)}
+.links a{font-weight:600;margin-right:18px}
+/* etapas */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;counter-reset:s}
+.step{background:rgba(27,26,58,.25);border-radius:16px;padding:22px}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:Fraunces,serif;font-size:2rem;color:var(--pessego)}
+.step h3{font-size:1.2rem;margin:6px 0}
+/* stack */
+.group{margin-bottom:20px}
+.group h3{font-size:1.1rem;margin-bottom:10px}
+.s-rosa .chip{background:var(--noite);color:var(--rosa)}
+/* contato */
+footer{background:var(--rosa);color:var(--noite);padding:0 0 56px}
+footer .contact a{font-weight:600;margin-right:22px}
+.todo{outline:2px dashed var(--pessego);outline-offset:3px}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+/* hero com foto */
+.hero .wrap{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.foto{width:clamp(180px,26vw,300px);aspect-ratio:1;border-radius:50%;object-fit:cover;border:5px solid var(--pessego);box-shadow:0 0 0 12px rgba(174,68,89,.35),0 20px 50px rgba(0,0,0,.5)}
+@media(max-width:760px){.hero .wrap{grid-template-columns:1fr}.foto{order:-1;width:170px}}
+.card .auto{font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--pessego);opacity:.8}
+.note{max-width:62ch;margin:-12px 0 28px;opacity:.85}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn,.card{transition:none}}
+@media(max-width:640px){nav ul{gap:12px}nav a{font-size:.8rem}.logo{display:none}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Principal"><div class="wrap">
+  <span class="logo">Maria G.</span>
+  <ul>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#metodo">Método</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</div></nav>
+
+<main>
+<!-- HERO -->
+<section class="s-noite hero"><div class="wrap">
+  <div>
+    <p class="eyebrow">Finanças · Dados · Tecnologia</p>
+    <!-- EDITE: nome completo e frase de posicionamento -->
+    <h1>Operações complexas viram inteligência acionável.</h1>
+    <p class="lead">Sou Maria. Conecto dados operacionais à estratégia do negócio, com Python, Power BI e IA aplicada, para dar clareza a quem decide.</p>
+    <a class="btn p" href="#projetos">Ver projetos</a>
+    <a class="btn s" href="https://www.linkedin.com/in/maria-graziellarso/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <img class="foto" src="assets/foto.jpg" width="300" height="300" alt="Retrato de Maria, sorrindo, de blazer bege e camisa azul">
+</div></section>
+<div class="s-noite"><svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path fill="#461A50" d="M0 40C200 0 380 70 620 45S1000 5 1200 30s180 15 240 0V70H0Z"/></svg></div>
+
+<!-- SOBRE -->
+<section id="sobre" class="s-roxo"><div class="wrap reveal">
+  <p class="eyebrow">Sobre</p>
+  <h2>Onde finanças, dados e tecnologia se encontram.</h2>
+  <!-- EDITE: texto baseado no seu resumo do LinkedIn -->
+  <p style="max-width:70ch">Atuo na interseção entre finanças, dados e tecnologia, transformando operações complexas em inteligência acionável para a tomada de decisão. Participei da estruturação e evolução de processos em Enterprise Asset Management (EAM), na transição de rotinas manuais para soluções automatizadas e orientadas a dados.</p>
+  <p style="max-width:70ch;margin-top:14px">Tenho experiência em planejamento financeiro (CAPEX e OPEX), business plan e indicadores estratégicos, como ponte entre áreas contábil, fiscal, engenharia, compras e liderança executiva. Como key user SAP e desenvolvedora de soluções em Power BI, aumento a visibilidade e a eficiência da operação, e também desenvolvo iniciativas de IA aplicada a dados e finanças.</p>
+  <div class="nums">
+    <div class="num"><b>CAPEX · OPEX</b>planejamento financeiro e business plan</div>
+    <div class="num"><b>SAP · Power BI</b>key user e desenvolvedora de soluções</div>
+    <div class="num"><b>EAM</b>de rotinas manuais a processos automatizados</div>
+    <div class="num"><b>IA aplicada</b>a dados e finanças</div>
+  </div>
+</div></section>
+<div class="s-roxo"><svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path fill="#66244A" d="M0 20C240 70 420 0 700 30s520 30 740 5V70H0Z"/></svg></div>
+
+<!-- PROJETOS -->
+<section id="projetos" class="s-ameixa"><div class="wrap">
+  <p class="eyebrow">Projetos</p>
+  <h2>Estudos de caso</h2>
+  <p class="note">Antes de confiar no indicador, é preciso confiar na base. Novos repositórios com o tópico <code>portfolio</code> no GitHub aparecem aqui automaticamente.</p>
+  <div class="grid" id="projetos-grid">
+
+    <article class="card reveal" data-repo="smart-report-auditor">
+      <h3>Smart Report Auditor</h3>
+      <p class="sub">Auditoria automática de relatórios operacionais</p>
+      <h4>Problema</h4>
+      <p>Relatórios em Excel/CSV circulam com campos vazios, duplicidades, datas fora de padrão e categorias inconsistentes. O erro só aparece depois que o dashboard já foi atualizado.</p>
+      <h4>Solução</h4>
+      <p>App em Streamlit: o usuário envia um CSV ou Excel e recebe score de qualidade, alertas críticos, gráficos automáticos e diagnóstico executivo. Inclui alerta preventivo para colunas que sugerem dados pessoais (LGPD).</p>
+      <h4>Resultado</h4>
+      <p>Uma camada de validação reutilizável que antecipa erros e dá confiança à base antes da análise. <!-- EDITE: adicione uma métrica real, se tiver --></p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Pandas</span><span class="tag">Plotly</span><span class="tag">OpenPyXL</span></div>
+      <p class="links"><a href="https://github.com/mgraziellarsilvao/smart-report-auditor" target="_blank" rel="noopener">Código →</a></p>
+    </article>
+
+    <article class="card reveal" data-repo="ai-kpi-analyst-operacoes">
+      <h3>AI KPI Analyst</h3>
+      <p class="sub">Painel de OPEX/CAPEX, SLA e desvios orçamentários</p>
+      <h4>Problema</h4>
+      <p>Desvios de OPEX e CAPEX costumam ser descobertos só no fechamento mensal, tarde para agir. SLA e volume são analisados separadamente, embora estejam ligados.</p>
+      <h4>Solução</h4>
+      <p>Painel com 4 abas que cruza orçado, realizado, SLA e volume, destaca as categorias com maior estouro e gera diagnóstico executivo por regras explícitas (auditáveis), sem depender de LLM em tempo de execução.</p>
+      <h4>Resultado</h4>
+      <p>Visibilidade antecipada dos desvios e leitura cruzada SLA × custo para chegar mais rápido à causa-raiz. Desenvolvido com Claude Code na estrutura e critério de negócio definido por mim. <!-- EDITE: adicione uma métrica real --></p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Pandas</span><span class="tag">Plotly</span><span class="tag">Claude Code</span></div>
+      <p class="links"><a href="https://ai-kpi-analyst-operacoes.streamlit.app/" target="_blank" rel="noopener">Demo →</a><a href="https://github.com/mgraziellarsilvao/ai-kpi-analyst-operacoes" target="_blank" rel="noopener">Código →</a></p>
+    </article>
+
+  </div>
+</div></section>
+<div class="s-ameixa"><svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path fill="#AE4459" d="M0 35C180 65 420 5 680 25s460 40 760 0V70H0Z"/></svg></div>
+
+<!-- MÉTODO -->
+<section id="metodo" class="s-framboesa"><div class="wrap reveal">
+  <p class="eyebrow" style="color:var(--noite)">Como eu trabalho</p>
+  <h2>Da dor da operação ao resultado medido</h2>
+  <div class="steps">
+    <div class="step"><h3>Entender a operação</h3><p>Converso com quem usa o dado, de contábil a engenharia, e descubro onde está o retrabalho.</p></div>
+    <div class="step"><h3>Mapear o processo</h3><p>Desenho o fluxo atual e as regras que ninguém escreveu.</p></div>
+    <div class="step"><h3>Automatizar</h3><p>Separo lógica analítica de interface para manter o código claro e testável.</p></div>
+    <div class="step"><h3>Medir o resultado</h3><p>Documento premissas, limites e próximos passos.</p></div>
+  </div>
+</div></section>
+<div class="s-framboesa"><svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path fill="#E8BBB8" d="M0 30C260 0 440 70 720 40s480-30 720 10V70H0Z"/></svg></div>
+
+<!-- STACK -->
+<section id="stack" class="s-rosa"><div class="wrap reveal">
+  <p class="eyebrow" style="color:var(--ameixa)">Stack</p>
+  <h2>Ferramentas que uso</h2>
+  <div class="group"><h3>Python e dados</h3><span class="chip">Python</span> <span class="chip">Pandas</span> <span class="chip">Plotly</span> <span class="chip">OpenPyXL</span></div>
+  <div class="group"><h3>Finanças e gestão</h3><span class="chip">SAP</span> <span class="chip">Power BI</span> <span class="chip">CAPEX / OPEX</span> <span class="chip">EAM</span></div>
+  <div class="group"><h3>Aplicações</h3><span class="chip">Streamlit</span> <span class="chip">Streamlit Cloud</span></div>
+  <div class="group"><h3>Desenvolvimento</h3><span class="chip">GitHub</span> <span class="chip">VS Code</span> <span class="chip">Claude Code</span></div>
+</div></section>
+
+<!-- CONTATO -->
+<footer id="contato"><div class="wrap">
+  <h2 style="padding-top:40px">Vamos conversar?</h2>
+  <p class="contact" style="margin-top:8px">
+    <a class="btn p" href="https://www.linkedin.com/in/maria-graziellarso/" target="_blank" rel="noopener">Falar comigo no LinkedIn</a>
+    <a href="https://github.com/mgraziellarsilvao" target="_blank" rel="noopener">GitHub</a>
+  </p>
+  <p style="margin-top:28px;font-size:.85rem;opacity:.75">Projetos de portfólio com dados fictícios.</p>
+</div></footer>
+</main>
+
+<script>
+// ===== Configuração: edite aqui =====
+const GH_USER = "mgraziellarsilvao";
+const TOPIC = "portfolio";                 // repositórios com este tópico entram sozinhos
+const IGNORAR = [GH_USER + ".github.io"];  // repositórios que nunca aparecem
+// ====================================
+const grid = document.getElementById("projetos-grid");
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 });
+const observar = el => io.observe(el);
+document.querySelectorAll(".reveal").forEach(observar);
+
+function el(tag, cls, txt) { const e = document.createElement(tag); if (cls) e.className = cls; if (txt) e.textContent = txt; return e; }
+function nomeBonito(n) { return n.replace(/[-_]+/g, " ").replace(/\b\w/g, c => c.toUpperCase()); }
+
+function criarCard(r) {
+  const c = el("article", "card reveal"); c.dataset.repo = r.name;
+  c.append(el("h3", "", nomeBonito(r.name)));
+  c.append(el("p", "sub", r.description || "Adicione uma descrição ao repositório no GitHub."));
+  c.append(el("p", "auto", "adicionado automaticamente do GitHub"));
+  const tags = el("div", "tags");
+  [r.language, ...(r.topics || []).filter(t => t !== TOPIC)].filter(Boolean).forEach(t => tags.append(el("span", "tag", t)));
+  c.append(tags);
+  const links = el("p", "links");
+  if (r.homepage) { const a = el("a", "", "Demo →"); a.href = r.homepage; a.target = "_blank"; a.rel = "noopener"; links.append(a); }
+  const code = el("a", "", "Código →"); code.href = r.html_url; code.target = "_blank"; code.rel = "noopener"; links.append(code);
+  c.append(links);
+  return c;
+}
+
+async function carregarRepos() {
+  const chave = "repos:" + GH_USER;
+  try { const c = JSON.parse(sessionStorage.getItem(chave) || "null"); if (c && Date.now() - c.t < 3e5) return c.d; } catch (e) {}
+  const r = await fetch("https://api.github.com/users/" + GH_USER + "/repos?per_page=100&sort=updated");
+  if (!r.ok) throw new Error("GitHub API " + r.status);
+  const d = await r.json();
+  try { sessionStorage.setItem(chave, JSON.stringify({ t: Date.now(), d })); } catch (e) {}
+  return d;
+}
+
+(async () => {
+  try {
+    const repos = await carregarRepos();
+    const jaTem = new Set([...grid.querySelectorAll("[data-repo]")].map(e => e.dataset.repo));
+    repos.filter(r => !r.fork && !r.archived && (r.topics || []).includes(TOPIC) && !IGNORAR.includes(r.name) && !jaTem.has(r.name))
+         .forEach(r => { const c = criarCard(r); grid.append(c); observar(c); c.classList.add("in"); });
+  } catch (e) { /* sem rede ou limite da API: os estudos de caso fixos continuam visíveis */ }
+})();
+</script>
+</body>
+</html>
